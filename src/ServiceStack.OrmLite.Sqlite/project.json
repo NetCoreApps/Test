@@ -24,8 +24,8 @@
     "netstandard1.3": {
       "dependencies": {},
       "bin": {
-        "assembly": "../../lib/netstandard1.3/ServiceStack.OrmLite.Sqlite.dll",
-        "pdb": "../../lib/netstandard1.3/ServiceStack.OrmLite.Sqlite.pdb"
+        "assembly": "../lib/netstandard1.3/ServiceStack.OrmLite.Sqlite.dll",
+        "pdb": "../lib/netstandard1.3/ServiceStack.OrmLite.Sqlite.pdb"
       }
     }
   },

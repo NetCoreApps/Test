@@ -22,7 +22,7 @@
         },
         "dependencies" : {
          },
-        "bin" : { "assembly":"../../lib/netstandard1.3/ServiceStack.Common.dll", "pdb" : "../../lib/netstandard1.3/ServiceStack.Common.pdb" }
+        "bin" : { "assembly":"../lib/netstandard1.3/ServiceStack.Common.dll", "pdb" : "../lib/netstandard1.3/ServiceStack.Common.pdb" }
      }
    
   },

@@ -18,7 +18,7 @@
     "netstandard1.6": { 
         "dependencies" : {
          },
-        "bin" : { "assembly":"../../lib/netstandard1.6/ServiceStack.dll", "pdb" : "../../lib/netstandard1.6/ServiceStack.pdb" }
+        "bin" : { "assembly":"../lib/netstandard1.6/ServiceStack.dll", "pdb" : "../lib/netstandard1.6/ServiceStack.pdb" }
      }
    
   },

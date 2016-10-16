@@ -24,8 +24,8 @@
     "netstandard1.3": {
       "dependencies": {},
       "bin": {
-        "assembly": "../../lib/netstandard1.3/ServiceStack.Redis.dll",
-        "pdb": "../../lib/netstandard1.3/ServiceStack.Redis.pdb"
+        "assembly": "../lib/netstandard1.3/ServiceStack.Redis.dll",
+        "pdb": "../lib/netstandard1.3/ServiceStack.Redis.pdb"
       }
     }
   },
