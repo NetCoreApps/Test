@@ -11,5 +11,5 @@ oauth.facebook.AppId 700064246817763
 oauth.facebook.AppSecret 87799150a1e6367aa1167b99b4663f89
 
 oauth.github.Scopes user
-oauth.github.ClientId b8efac320841e4728048
-oauth.github.ClientSecret 5d81d721abb0f9ba673e8c04b19c601c23c363d1
+oauth.github.ClientId 2233d5928105f9e239ec
+oauth.github.ClientSecret fd57be6c8edb6b9cdceb2235fc7ae61d2bd426b9
