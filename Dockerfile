@@ -1,5 +1,5 @@
 FROM microsoft/dotnet:latest
-COPY src/Test /app/Test
+COPY src /app
 COPY src/Test/deploy /app/Test
 WORKDIR /app
 RUN ["dotnet", "restore"]
