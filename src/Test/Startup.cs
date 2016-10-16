@@ -103,9 +103,12 @@ namespace Test
         public AppHost() : base("Chat", typeof(ServerEventsServices).GetTypeInfo().Assembly)
         {
             var liveSettings = MapProjectPath("~/appsettings.txt");
-            AppSettings = File.Exists(liveSettings)
-                ? (IAppSettings)new TextFileSettings(liveSettings)
-                : new AppSettings();
+            if (File.Exists(liveSettings))
+            {
+                AppSettings = new MultiAppSettings(
+                    new TextFileSettings(liveSettings),
+                    new AppSettings());
+            }
         }
 
         public override void Configure(Container container)
