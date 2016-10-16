@@ -12,10 +12,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Northwind.ServiceInterface;
 using ServiceStack;
+using ServiceStack.Admin;
 using ServiceStack.Auth;
 using ServiceStack.Configuration;
+using ServiceStack.Data;
+using ServiceStack.Host.Handlers;
 using ServiceStack.Mvc;
+using ServiceStack.OrmLite;
+using ServiceStack.Text;
 
 namespace Test
 {
@@ -58,6 +64,9 @@ namespace Test
 
             //app.UseStaticFiles();
 
+            var lic = Environment.GetEnvironmentVariable("SERVICESTACK_LICENSE");
+            lic.Print();
+
             app.UseServiceStack(new AppHost());
 
             app.UseMvc(routes =>
@@ -66,6 +75,8 @@ namespace Test
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.Use(new RequestInfoHandler());
         }
     }
 
@@ -99,6 +110,9 @@ namespace Test
 
         public override void Configure(Container container)
         {
+            /** 
+             * Chat 
+             * **/
             Plugins.Add(new RazorFormat());
             Plugins.Add(new ServerEventsFeature());
 
@@ -123,6 +137,21 @@ namespace Test
 
             // for lte IE 9 support
             Plugins.Add(new CorsFeature());
+
+
+            /** 
+             * Northwind 
+             * **/
+            container.Register<IDbConnectionFactory>(
+                new OrmLiteConnectionFactory(MapProjectPath("~/App_Data/Northwind.sqlite"), SqliteDialect.Provider));
+
+            //Use Redis Cache
+            //container.Register<ICacheClient>(new PooledRedisClientManager());
+
+            VCardFormat.Register(this);
+
+            Plugins.Add(new AutoQueryFeature { MaxLimit = 100 });
+            Plugins.Add(new AdminFeature());
         }
     }
 }
