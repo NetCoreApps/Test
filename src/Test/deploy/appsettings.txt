@@ -1,0 +1,15 @@
+DebugMode True
+
+oauth.RedirectUrl http://test.netcore.io/
+oauth.CallbackUrl http://test.netcore.io/auth/{0}
+
+oauth.twitter.ConsumerKey DoaAqKbo4xFkAh2Mr0edPsh3j
+oauth.twitter.ConsumerSecret 1DlbJZ2QJr2AhS1mKT34WBBtFbpp49FELUdDZ8ZziOJ13heOPZ
+
+oauth.facebook.Permissions email
+oauth.facebook.AppId 700064246817763
+oauth.facebook.AppSecret 87799150a1e6367aa1167b99b4663f89
+
+oauth.github.Scopes user
+oauth.github.ClientId b8efac320841e4728048
+oauth.github.ClientSecret 5d81d721abb0f9ba673e8c04b19c601c23c363d1
