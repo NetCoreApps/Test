@@ -1,7 +1,8 @@
 FROM microsoft/dotnet:latest
-COPY src/Test /app/Test
-COPY src/Test/deploy /app/Test
-WORKDIR /app/Test
+COPY lib /app/lib
+COPY src/Test /app/src/Test
+COPY src/Test/deploy /app/src/Test
+WORKDIR /app/src/Test
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
 EXPOSE 5000/tcp
