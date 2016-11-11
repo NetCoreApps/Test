@@ -22,6 +22,8 @@ using ServiceStack.Host.Handlers;
 using ServiceStack.Mvc;
 using ServiceStack.OrmLite;
 using ServiceStack.Text;
+using ServiceStack.Web;
+using WebMarkupMin.AspNetCore1;
 
 namespace Test
 {
@@ -43,7 +45,27 @@ namespace Test
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            // Add WebMarkupMin services.
+            services.AddWebMarkupMin(options =>
+                {
+                    options.AllowMinificationInDevelopmentEnvironment = true;
+                    options.AllowCompressionInDevelopmentEnvironment = true;
+                })
+                .AddHtmlMinification()
+                .AddXmlMinification()
+                .AddHttpCompression();
+
+            // Add framework services.
             services.AddMvc();
+
+            // IIS Integration
+            services.Configure<IISOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+                options.ForwardClientCertificate = false;
+                options.ForwardWindowsAuthentication = false;
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,10 +84,7 @@ namespace Test
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //app.UseStaticFiles();
-
-            var lic = Environment.GetEnvironmentVariable("SERVICESTACK_LICENSE");
-            lic.Print();
+            app.UseWebMarkupMin();
 
             app.UseServiceStack(new AppHost());
 
@@ -111,8 +130,18 @@ namespace Test
             }
         }
 
+        public override string GetBaseUrl(IRequest httpReq)
+        {
+            return base.GetBaseUrl(httpReq);
+        }
+
         public override void Configure(Container container)
         {
+            SetConfig(new HostConfig
+            {
+                HandlerFactoryPath = "api"
+            });
+
             /** 
              * Chat 
              * **/

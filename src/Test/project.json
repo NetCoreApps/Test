@@ -35,7 +35,8 @@
     "ServiceStack.OrmLite": "1.0.*",
     "ServiceStack.OrmLite.Sqlite": "1.0.*",
     "ServiceStack.Server": "1.0.*",
-    "ServiceStack.Admin": "1.0.*"
+    "ServiceStack.Admin": "1.0.*",
+    "WebMarkupMin.AspNetCore1": "2.2.1"
   },
 
   "tools": {
