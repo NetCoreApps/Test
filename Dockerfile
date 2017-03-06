@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:latest
+FROM microsoft/dotnet:1.1-sdk-projectjson
 COPY src /app
 COPY src/Test/deploy /app/Test
 WORKDIR /app
