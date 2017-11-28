@@ -23,70 +23,38 @@ using ServiceStack.Mvc;
 using ServiceStack.OrmLite;
 using ServiceStack.Text;
 using ServiceStack.Web;
-using WebMarkupMin.AspNetCore1;
 
 namespace Test
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
-        }
-
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            // Add WebMarkupMin services.
-            services.AddWebMarkupMin(options =>
-                {
-                    options.AllowMinificationInDevelopmentEnvironment = true;
-                    options.AllowCompressionInDevelopmentEnvironment = true;
-                })
-                .AddHtmlMinification()
-                .AddXmlMinification()
-                .AddHttpCompression();
-
-            // Add framework services.
             services.AddMvc();
-
-            // IIS Integration
-            services.Configure<IISOptions>(options =>
-            {
-                options.AutomaticAuthentication = false;
-                options.ForwardClientCertificate = false;
-                options.ForwardWindowsAuthentication = false;
-
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseBrowserLink();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseWebMarkupMin();
+            app.UseStaticFiles();
 
-            app.UseServiceStack(new AppHost());
+            app.UseServiceStack(new AppHost 
+            {
+                AppSettings = new NetCoreAppSettings(Configuration)
+            });
 
             app.UseMvc(routes =>
             {
@@ -94,8 +62,6 @@ namespace Test
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.Use(new RequestInfoHandler());
         }
     }
 
@@ -119,21 +85,7 @@ namespace Test
 
     public class AppHost : AppHostBase
     {
-        public AppHost() : base("Chat", typeof(ServerEventsServices).GetTypeInfo().Assembly)
-        {
-            var liveSettings = MapProjectPath("~/appsettings.txt");
-            if (File.Exists(liveSettings))
-            {
-                AppSettings = new MultiAppSettings(
-                    new TextFileSettings(liveSettings),
-                    new AppSettings());
-            }
-        }
-
-        public override string GetBaseUrl(IRequest httpReq)
-        {
-            return base.GetBaseUrl(httpReq);
-        }
+        public AppHost() : base("Chat", typeof(ServerEventsServices).Assembly) {}
 
         public override void Configure(Container container)
         {

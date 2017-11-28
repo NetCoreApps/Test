@@ -9,7 +9,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using ServiceStack;
 using ServiceStack.Text;
-using ServiceStack.VirtualPath;
+using ServiceStack.IO;
 
 namespace Imgur
 {
@@ -41,8 +41,8 @@ namespace Imgur
     public class ImageService : Service
     {
         const int ThumbnailSize = 100;
-        readonly string UploadsDir = "wwwroot/imgur/uploads";
-        readonly string ThumbnailsDir = "wwwroot/imgur/uploads/thumbnails";
+        readonly string UploadsDir = "wwwroot/uploads";
+        readonly string ThumbnailsDir = "wwwroot/uploads/thumbnails";
         readonly List<string> ImageSizes = new[] { "320x480", "640x960", "640x1136", "768x1024", "1536x2048" }.ToList();
 
         public object Get(Images request)
@@ -79,7 +79,7 @@ namespace Imgur
 
             ms.Position = 0;
             var fileName = hash + ".png";
-            using (var img = System.Drawing.Image.FromStream(ms))
+            using (var img = Image.FromStream(ms))
             {
                 using (var msPng = MemoryStreamFactory.GetStream())
                 {
@@ -105,7 +105,7 @@ namespace Imgur
                 throw HttpError.NotFound(request.Id + " was not found");
 
             using (var stream = imageFile.OpenRead())
-            using (var img = System.Drawing.Image.FromStream(stream))
+            using (var img = Image.FromStream(stream))
             {
                 var parts = request.Size?.Split('x');
                 int width = img.Width;
@@ -121,7 +121,7 @@ namespace Imgur
             }
         }
 
-        public static Stream Resize(System.Drawing.Image img, int newWidth, int newHeight)
+        public static Stream Resize(Image img, int newWidth, int newHeight)
         {
             if (newWidth != img.Width || newHeight != img.Height)
             {
@@ -149,7 +149,7 @@ namespace Imgur
             return ms;
         }
 
-        public static System.Drawing.Image Crop(System.Drawing.Image Image, int newWidth, int newHeight, int startX = 0, int startY = 0)
+        public static Image Crop(Image Image, int newWidth, int newHeight, int startX = 0, int startY = 0)
         {
             if (Image.Height < newHeight)
                 newHeight = Image.Height;
