@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using ServiceStack;
 using ServiceStack.Auth;
+using ServiceStack.Text;
 
 namespace Test.ServiceInterface
 {
@@ -69,7 +70,7 @@ namespace Test.ServiceInterface
             unAuthInfo.CustomInfo = request.CustomName + " - CustomInfo";
             SessionBag.Set(unAuthInfo);
 
-            await this.SaveSessionAsync(session);
+            await this.SaveSessionAsync(session).ConfigAwait();
 
             return new GetSessionResponse
             {

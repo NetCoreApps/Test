@@ -66,6 +66,8 @@ namespace Test.ServiceInterface
             };
         }
 
+        public object Any(HelloSubAllTypes request) => request.ConvertTo<SubAllTypes>();
+
         public object Any(AllTypes request)
         {
             return request;

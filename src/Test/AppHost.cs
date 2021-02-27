@@ -75,6 +75,7 @@ namespace Test
 
             CreateUser(authRepo, 1, "test", "test", new List<string> { "TheRole" }, new List<string> { "ThePermission" });
             CreateUser(authRepo, 2, "test2", "test2");
+            CreateUser(authRepo, 2, "admin", "test", new List<string> { RoleNames.Admin });
 
             Plugins.Add(new PostmanFeature());
 
@@ -90,6 +91,11 @@ namespace Test
                 //RequestLogger = new RedisRequestLogger(container.Resolve<IRedisClientsManager>()),
             });
             // Plugins.Add(new RazorFormat());
+            
+            GlobalRequestFilters.Add((req, res, dto) => {
+                var msg = $"{req.Verb} {req.PathInfo} > {req.ContentType} < {string.Join(',', req.AcceptTypes)}";
+                msg.Print();
+            });
 
             Plugins.Add(new AuthFeature(() => new CustomUserSession(),
                 new IAuthProvider[]
@@ -100,7 +106,9 @@ namespace Test
                     },
                     new BasicAuthProvider(AppSettings),
                     new CredentialsAuthProvider(AppSettings),
-                }));
+                }) {
+                // AllowGetAuthenticateRequests = req => true,
+            });
 
             Plugins.Add(new OpenApiFeature());
             Plugins.Add(new ValidationFeature());
@@ -117,7 +125,7 @@ namespace Test
 
             Plugins.Add(new ServerEventsFeature
             {
-                LimitToAuthenticatedUsers = true,
+                // LimitToAuthenticatedUsers = true,
             });
         }
 
