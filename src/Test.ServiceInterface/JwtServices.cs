@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ServiceStack;
 using ServiceStack.Auth;
 using ServiceStack.Text;
+using Test.ServiceModel;
 
 namespace Test.ServiceInterface
 {
@@ -36,22 +37,42 @@ namespace Test.ServiceInterface
         public ResponseStatus ResponseStatus { get; set; }
     }
 
+    [ValidateIsAuthenticated]
+    [Route("/secured")]
+    public class Secured : IReturn<SecuredResponse>
+    {
+        public string Name { get; set; }
+    }
+
+    public class SecuredResponse
+    {
+        public string Result { get; set; }
+
+        public ResponseStatus ResponseStatus { get; set; }
+    }
+
+    [Route("/jwt-invalidate")]
+    public class InvalidateLastAccessToken : IReturn<EmptyResponse> {}
+
     public class JwtServices : Service
     {
+        public object Any(Secured request) =>
+            new SecuredResponse { Result = request.Name };
+        
         public object Any(CreateJwt request)
         {
-            var jwtProvider = (JwtAuthProvider)AuthenticateService.GetAuthProvider(JwtAuthProvider.Name);
+            var jwtAuthProvider = (JwtAuthProvider)AuthenticateService.GetRequiredJwtAuthProvider();
 
             if (request.JwtExpiry != null)
             {
-                jwtProvider.CreatePayloadFilter = (jwtPayload, session) =>
+                jwtAuthProvider.CreatePayloadFilter = (jwtPayload, session) =>
                     jwtPayload["exp"] = request.JwtExpiry.Value.ToUnixTime().ToString();
             }
 
             var jwtSession = request.ConvertTo<AuthUserSession>();
-            var token = jwtProvider.CreateJwtBearerToken(jwtSession);
+            var token = jwtAuthProvider.CreateJwtBearerToken(jwtSession);
 
-            jwtProvider.CreatePayloadFilter = null;
+            jwtAuthProvider.CreatePayloadFilter = null;
 
             return new CreateJwtResponse
             {
@@ -61,15 +82,15 @@ namespace Test.ServiceInterface
         
         public object Any(CreateRefreshJwt request)
         {
-            var jwtProvider = (JwtAuthProvider)AuthenticateService.GetAuthProvider(JwtAuthProvider.Name);
+            var jwtAuthProvider = (JwtAuthProvider)AuthenticateService.GetRequiredJwtAuthProvider();
 
             var jwtHeader = new JsonObject
             {
                 {"typ", "JWTR"}, //RefreshToken
-                {"alg", jwtProvider.HashAlgorithm}
+                {"alg", jwtAuthProvider.HashAlgorithm}
             };
 
-            var keyId = jwtProvider.GetKeyId(Request);
+            var keyId = jwtAuthProvider.GetKeyId(Request);
             if (keyId != null)
                 jwtHeader["kid"] = keyId;
 
@@ -81,16 +102,23 @@ namespace Test.ServiceInterface
                 {"exp", (request.JwtExpiry ?? DateTime.UtcNow.AddDays(1)).ToUnixTime().ToString()},
             };
 
-            if (jwtProvider.Audience != null)
-                jwtPayload["aud"] = jwtProvider.Audience;
+            if (jwtAuthProvider.Audience != null)
+                jwtPayload["aud"] = jwtAuthProvider.Audience;
 
-            var hashAlgoritm = jwtProvider.GetHashAlgorithm();
-            var refreshToken = JwtAuthProvider.CreateJwt(jwtHeader, jwtPayload, hashAlgoritm);
+            var hashAlgorithm = jwtAuthProvider.GetHashAlgorithm();
+            var refreshToken = JwtAuthProvider.CreateJwt(jwtHeader, jwtPayload, hashAlgorithm);
 
             return new CreateRefreshJwtResponse
             {
                 Token = refreshToken
             };
+        }
+
+        public object Any(InvalidateLastAccessToken request)
+        {
+            var jwtAuthProvider = AuthenticateService.GetRequiredJwtAuthProvider();
+            jwtAuthProvider.InvalidateJwtIds.Add(jwtAuthProvider.LastJwtId());
+            return new EmptyResponse();
         }
     }
 }

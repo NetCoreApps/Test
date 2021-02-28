@@ -102,7 +102,7 @@ namespace Test
                 {
                     new JwtAuthProvider(AppSettings)
                     {
-                        AllowInQueryString = true
+                        AllowInQueryString = true,
                     },
                     new BasicAuthProvider(AppSettings),
                     new CredentialsAuthProvider(AppSettings),
