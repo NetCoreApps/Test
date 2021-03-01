@@ -106,6 +106,9 @@ namespace Test
                     },
                     new BasicAuthProvider(AppSettings),
                     new CredentialsAuthProvider(AppSettings),
+                    new TwitterAuthProvider(AppSettings),   //Sign-in with Twitter
+                    new FacebookAuthProvider(AppSettings),  //Sign-in with Facebook
+                    new GithubAuthProvider(AppSettings),    //Sign-in with GitHub
                 }) {
                 // AllowGetAuthenticateRequests = req => true,
             });
@@ -123,6 +126,9 @@ namespace Test
             var nativeTypes = this.GetPlugin<NativeTypesFeature>();
             nativeTypes.MetadataTypesConfig.ExportTypes.Add(typeof(DayOfWeek));
 
+            Plugins.Add(new SharpPagesFeature());
+
+            container.RegisterAutoWiredAs<MemoryChatHistory, IChatHistory>();
             Plugins.Add(new ServerEventsFeature
             {
                 // LimitToAuthenticatedUsers = true,
