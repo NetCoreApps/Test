@@ -73,13 +73,20 @@ namespace Test.ServiceModel.Types
         public SubType SubType { get; set; }
     }
 
-    public class AllCollectionTypes
+    public class AllCollectionTypes : IReturn<AllCollectionTypes>
     {
         public int[] IntArray { get; set; }
         public List<int> IntList { get; set; }
 
         public string[] StringArray { get; set; }
         public List<string> StringList { get; set; }
+
+        public float[] FloatArray { get; set; }
+        public List<double> DoubleList { get; set; }
+
+        public byte[] ByteArray { get; set; }
+        public char[] CharArray { get; set; }
+        public List<decimal> DecimalList { get; set; }
 
         public Poco[] PocoArray { get; set; }
         public List<Poco> PocoList { get; set; }

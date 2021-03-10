@@ -68,54 +68,32 @@ namespace Test.ServiceInterface
 
         public object Any(HelloSubAllTypes request) => request.ConvertTo<SubAllTypes>();
 
-        public object Any(AllTypes request)
-        {
-            return request;
-        }
+        public object Any(AllTypes request) => request;
 
-        public object Any(HelloString request)
-        {
-            return request.Name;
-        }
+        public object Any(AllCollectionTypes request) => request;
 
-        public object Any(HelloDateTime request)
-        {
-            return request;
-        }
+        public object Any(HelloString request) => request.Name;
+
+        public object Any(HelloDateTime request) => request;
 
         public void Any(HelloVoid request)
         {
         }
 
-        public object Any(HelloWithDataContract request)
-        {
-            return new HelloWithDataContractResponse { Result = request.Name };
-        }
+        public object Any(HelloWithDataContract request) => 
+            new HelloWithDataContractResponse { Result = request.Name };
 
-        public object Any(HelloWithDescription request)
-        {
-            return new HelloWithDescriptionResponse { Result = request.Name };
-        }
+        public object Any(HelloWithDescription request) => 
+            new HelloWithDescriptionResponse { Result = request.Name };
 
-        public object Any(HelloWithInheritance request)
-        {
-            return new HelloWithInheritanceResponse { Result = request.Name };
-        }
+        public object Any(HelloWithInheritance request) => 
+            new HelloWithInheritanceResponse { Result = request.Name };
 
-        public object Any(HelloWithGenericInheritance request)
-        {
-            return request;
-        }
+        public object Any(HelloWithGenericInheritance request) => request;
 
-        public object Any(HelloWithGenericInheritance2 request)
-        {
-            return request;
-        }
+        public object Any(HelloWithGenericInheritance2 request) => request;
 
-        public object Any(HelloWithNestedInheritance request)
-        {
-            return request;
-        }
+        public object Any(HelloWithNestedInheritance request) => request;
 
         //public object Any(HelloWithListInheritance request)
         //{
