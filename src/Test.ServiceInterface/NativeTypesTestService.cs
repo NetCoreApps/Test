@@ -16,45 +16,24 @@ namespace Test.ServiceInterface
             };
         }
 
-        public object Any(HelloAnnotated request)
-        {
-            return new HelloAnnotatedResponse { Result = request.Name };
-        }
+        public object Any(HelloAnnotated request) => new HelloAnnotatedResponse { Result = request.Name };
 
-        public object Any(HelloWithNestedClass request)
-        {
-            return new HelloResponse { Result = request.Name };
-        }
+        public object Any(HelloWithNestedClass request) => new HelloResponse { Result = request.Name };
 
-        public object Any(HelloList request)
-        {
-            return request.Names.Map(name => new ListResult { Result = name });
-        }
+        public object Any(HelloList request) => request.Names.Map(name => new ListResult { Result = name });
 
-        public object Any(HelloArray request)
-        {
-            return request.Names.Map(name => new ArrayResult { Result = name });
-        }
+        public object Any(HelloArray request) => request.Names.Map(name => new ArrayResult { Result = name });
 
-        public object Any(HelloWithEnum request)
-        {
-            return request;
-        }
+        public object Any(HelloWithEnum request) => request;
+        public object Any(HelloWithEnumList request) => request;
 
-        public object Any(HelloExternal request)
-        {
-            return request;
-        }
+        public object Any(HelloWithEnumMap request) => request;
 
-        public object Any(RestrictedAttributes request)
-        {
-            return request;
-        }
+        public object Any(HelloExternal request) => request;
 
-        public object Any(AllowedAttributes request)
-        {
-            return request;
-        }
+        public object Any(RestrictedAttributes request) => request;
+
+        public object Any(AllowedAttributes request) => request;
 
         public object Any(HelloAllTypes request)
         {
@@ -76,9 +55,7 @@ namespace Test.ServiceInterface
 
         public object Any(HelloDateTime request) => request;
 
-        public void Any(HelloVoid request)
-        {
-        }
+        public void Any(HelloVoid request) {}
 
         public object Any(HelloWithDataContract request) => 
             new HelloWithDataContractResponse { Result = request.Name };
@@ -134,49 +111,23 @@ namespace Test.ServiceInterface
         //    return request;
         //}
 
-        public object Any(HelloBuiltin request)
-        {
-            return request;
-        }
+        public object Any(HelloBuiltin request) => request;
 
-        public object Any(HelloGet request)
-        {
-            return new HelloVerbResponse { Result = HttpMethods.Get };
-        }
+        public object Any(HelloGet request) => new HelloVerbResponse { Result = HttpMethods.Get };
 
-        public object Any(HelloPost request)
-        {
-            return new HelloVerbResponse { Result = HttpMethods.Post };
-        }
+        public object Any(HelloPost request) => new HelloVerbResponse { Result = HttpMethods.Post };
 
-        public object Any(HelloPut request)
-        {
-            return new HelloVerbResponse { Result = HttpMethods.Put };
-        }
+        public object Any(HelloPut request) => new HelloVerbResponse { Result = HttpMethods.Put };
 
-        public object Any(HelloDelete request)
-        {
-            return new HelloVerbResponse { Result = HttpMethods.Delete };
-        }
+        public object Any(HelloDelete request) => new HelloVerbResponse { Result = HttpMethods.Delete };
 
-        public object Any(HelloPatch request)
-        {
-            return new HelloVerbResponse { Result = HttpMethods.Patch };
-        }
+        public object Any(HelloPatch request) => new HelloVerbResponse { Result = HttpMethods.Patch };
 
-        public void Any(HelloReturnVoid request)
-        {
-        }
+        public void Any(HelloReturnVoid request) {}
 
-        public object Any(EnumRequest request)
-        {
-            return new EnumResponse { Operator = request.Operator };
-        }
+        public object Any(EnumRequest request) => new EnumResponse { Operator = request.Operator };
 
-        public object Any(HelloTypes request)
-        {
-            return request;
-        }
+        public object Any(HelloTypes request) => request;
 
         public object Any(HelloZip request)
         {

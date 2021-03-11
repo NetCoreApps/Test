@@ -117,7 +117,7 @@ namespace Test
             Plugins.Add(new ValidationFeature());
             Plugins.Add(new AutoQueryFeature
             {
-                MaxLimit = 100,
+                MaxLimit = 1000,
             });
 
             container.RegisterValidators(typeof(ThrowValidationValidator).Assembly);
