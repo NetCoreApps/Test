@@ -76,4 +76,30 @@ namespace Test.ServiceModel
         [DataMember(Order = 1, IsRequired = false)]
         public string Name1 { get; set; }
     }
+
+    [Route("/messages/{Id}", "GET")]
+    public class RequestMessage : IReturn<Message>
+    {
+        public int Id { get; set; }
+    }
+
+    [Route("/messages/{Id}", "PUT")]
+    public class Message : IReturn<Message>
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    [Route("/messages/crud/{Id}", "PUT")]
+    public class MessageCrud : ISaveDb<MessageCrud>, IReturnVoid
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+    
+    [Route("/message/query/{Id}", verbs: "GET")]
+    public class MessageQuery : QueryDb<MessageQuery>
+    {
+        public int Id { get; set; }
+    }
 }

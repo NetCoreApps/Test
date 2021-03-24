@@ -49,5 +49,8 @@ namespace Test.ServiceInterface
                 }
             };
         }
+
+        public object Get(RequestMessage request) => new Message();
+        public object Put(Message request) => request;
     }
 }
