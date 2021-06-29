@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Api.OpenApi.So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Server.Source", "..\..\..\..\Source\ServiceStack\src\ServiceStack.Server\ServiceStack.Server.Source.csproj", "{7AD25838-92EC-48B9-9C41-FE313FD42DCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Client.Web", "Test.Client.Web\Test.Client.Web.csproj", "{8CADC5EC-E05F-417F-9794-12F476F4D836}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{7AD25838-92EC-48B9-9C41-FE313FD42DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD25838-92EC-48B9-9C41-FE313FD42DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD25838-92EC-48B9-9C41-FE313FD42DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CADC5EC-E05F-417F-9794-12F476F4D836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CADC5EC-E05F-417F-9794-12F476F4D836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CADC5EC-E05F-417F-9794-12F476F4D836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CADC5EC-E05F-417F-9794-12F476F4D836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
