@@ -3,6 +3,8 @@
 
 # Project-specific files
 uploads/
+build/
+.dart_tool/
 
 # User-specific files
 *.suo
