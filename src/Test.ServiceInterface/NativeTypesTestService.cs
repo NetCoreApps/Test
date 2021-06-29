@@ -70,7 +70,7 @@ namespace Test.ServiceInterface
 
         public object Any(HelloWithGenericInheritance2 request) => request;
 
-        public object Any(HelloWithNestedInheritance request) => request;
+        //public object Any(HelloWithNestedInheritance request) => request;
 
         //public object Any(HelloWithListInheritance request)
         //{

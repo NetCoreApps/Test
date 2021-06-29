@@ -14,6 +14,8 @@ using ServiceStack.Web;
 using System;
 using ServiceStack.Text;
 using ServiceStack.Logging;
+using ServiceStack.NativeTypes.CSharp;
+using ServiceStack.NativeTypes.TypeScript;
 
 namespace Test
 {
@@ -37,6 +39,8 @@ namespace Test
             {
                 AppSettings = new NetCoreAppSettings(Configuration)
             });
+
+            CSharpGenerator.UseNullableAnnotations = true;
         }
     }
 }
