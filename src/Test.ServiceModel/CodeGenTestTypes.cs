@@ -475,6 +475,4 @@ namespace Test.ServiceModel
         [DataMember]
         public string Result { get; set; }
     }
-    
-    
 }

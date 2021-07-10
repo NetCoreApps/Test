@@ -111,6 +111,8 @@ namespace Test
                     new GithubAuthProvider(AppSettings),    //Sign-in with GitHub
                 }) {
                 // AllowGetAuthenticateRequests = req => true,
+                IncludeRegistrationService = true,
+                IncludeAssignRoleServices = true,
             });
 
             Plugins.Add(new OpenApiFeature());
