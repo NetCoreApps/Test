@@ -16,9 +16,11 @@ namespace Test.ServiceInterface
             };
         }
 
+        public object Any(HelloSecure request) => new HelloResponse { Result = $"Hello, {request.Name}!" };
+
         public object Any(HelloAnnotated request) => new HelloAnnotatedResponse { Result = request.Name };
 
-        public object Any(HelloWithNestedClass request) => new HelloResponse { Result = request.Name };
+        public object Get(HelloWithNestedClass request) => new HelloResponse { Result = request.Name };
 
         public object Any(HelloList request) => request.Names.Map(name => new ListResult { Result = name });
 

@@ -22,6 +22,14 @@ namespace Test.ServiceModel
         public string Result { get; set; }
     }
 
+    [ValidateIsAuthenticated]
+    [Route("/hello-secure/{Name}")]
+    public class HelloSecure : IReturn<HelloResponse>
+    {
+        public string Name { get; set; }
+    }
+
+    // [Route("/hello/nested", "GET")]
     public class HelloWithNestedClass : IReturn<HelloResponse>
     {
         public string Name { get; set; }
@@ -116,9 +124,7 @@ namespace Test.ServiceModel
     public enum EnumFlags
     {
         Value0 = 0,
-        [EnumMember(Value = "Value 1")]
         Value1 = 1,
-        [Description("Value 2")]
         Value2 = 2,
         Value3 = 4,
         Value123 = Value1 | Value2 | Value3,

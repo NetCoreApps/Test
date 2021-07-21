@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using Funq;
 using Microsoft.AspNetCore.Hosting;
 using ServiceStack;
@@ -44,6 +45,7 @@ namespace Test
 
             SetConfig(new HostConfig
             {
+                AdminAuthSecret = "secretz",
                 DebugMode = HostingEnvironment.IsDevelopment(),
                 UseSameSiteCookies = true,
                 Return204NoContentForEmptyResponse = true,
