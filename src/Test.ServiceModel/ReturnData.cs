@@ -27,4 +27,14 @@ namespace Test.ServiceModel
     {
         public byte[] Data { get; set; }
     }
+    
+    [Route("/return/json")]
+    public class ReturnJson {}
+    
+    [Route("/return/json/header")]
+    public class ReturnJsonHeader {}
+
+    [Route("/write/json")]
+    public class WriteJson {}
+
 }

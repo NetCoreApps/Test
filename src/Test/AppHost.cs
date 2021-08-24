@@ -13,6 +13,7 @@ using ServiceStack.Data;
 using ServiceStack.Host;
 using ServiceStack.Logging;
 using ServiceStack.NativeTypes.Java;
+using ServiceStack.NativeTypes.TypeScript;
 using ServiceStack.OrmLite;
 using ServiceStack.Redis;
 using ServiceStack.Text;
@@ -137,6 +138,8 @@ namespace Test
             {
                 // LimitToAuthenticatedUsers = true,
             });
+            
+            TypeScriptGenerator.ReturnTypeAliases[typeof(byte[]).Name] = "Uint8Array";
         }
 
         private void CreateUser(OrmLiteAuthRepository authRepo,

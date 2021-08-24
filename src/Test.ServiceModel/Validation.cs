@@ -3,6 +3,12 @@ using ServiceStack;
 
 namespace Test.ServiceModel
 {
+    [ValidateIsAuthenticated]
+    public class DeclarativeValidationAuth
+    {
+        public string Name { get; set; }
+    } 
+
     public class DeclarativeChildValidation
     {
         public string Name { get; set; }
