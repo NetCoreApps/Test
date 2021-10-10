@@ -55,6 +55,13 @@ namespace Test.ServiceInterface
             throw new Custom400Exception(request.Message ?? "Custom Status Description");
         }
 
+        public object Any(ReturnCustom400 request)
+        {
+            return new ReturnCustom400Response {
+                ResponseStatus = new Custom400Exception(request.Message ?? "Custom Status Description").ToResponseStatus()
+            };
+        }
+
         public object Any(ThrowType request)
         {
             switch (request.Type ?? "Exception")

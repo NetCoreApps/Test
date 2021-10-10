@@ -23,6 +23,17 @@ namespace Test.ServiceModel
         public string Message { get; set; }
     }
 
+    [Route("/returncustom400")]
+    [Route("/returncustom400/{Message}")]
+    public class ReturnCustom400 : IReturn<ReturnCustom400Response>
+    {
+        public string Message { get; set; }
+    }
+    public class ReturnCustom400Response
+    {
+        public ResponseStatus ResponseStatus { get; set; }
+    }
+
     [Route("/throwbusinesserror")]
     public class ThrowBusinessError {}
 
