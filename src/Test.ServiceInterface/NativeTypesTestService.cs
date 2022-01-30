@@ -1,4 +1,5 @@
-﻿using ServiceStack;
+﻿using System.Collections.Generic;
+using ServiceStack;
 using Test.ServiceModel;
 using Test.ServiceModel.Types;
 
@@ -25,6 +26,11 @@ namespace Test.ServiceInterface
         public object Any(HelloList request) => request.Names.Map(name => new ListResult { Result = name });
 
         public object Any(HelloArray request) => request.Names.Map(name => new ArrayResult { Result = name });
+
+        public object Any(HelloMap request) =>
+            new Dictionary<string, ArrayResult>(request.Names.Map(name => KeyValuePair.Create(name, new ArrayResult { Result = name })));
+
+        public object Any(HelloQueryResponse request) => new QueryResponse<string> { Results = request.Names };
 
         public object Any(HelloWithEnum request) => request;
         public object Any(HelloWithEnumList request) => request;

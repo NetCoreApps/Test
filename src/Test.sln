@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Tests", "Test.Tests\Test.Tests.csproj", "{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{1707F22E-E629-41CD-8C75-1A7F3F2BFA03}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\_deploy\deploy.sh = ..\..\_deploy\deploy.sh
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Interfaces", "..\..\..\..\Source\ServiceStack\src\ServiceStack.Interfaces\ServiceStack.Interfaces.csproj", "{F524E237-CE22-477C-92C7-4EF719A7918D}"
 EndProject

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using Funq;
-using Microsoft.AspNetCore.Hosting;
+﻿using Funq;
 using ServiceStack;
 using ServiceStack.Api.OpenApi;
 using ServiceStack.Auth;
-using ServiceStack.Caching;
 using ServiceStack.Configuration;
 using ServiceStack.Data;
-using ServiceStack.Host;
 using ServiceStack.Logging;
+using ServiceStack.NativeTypes.CSharp;
 using ServiceStack.NativeTypes.Java;
 using ServiceStack.NativeTypes.TypeScript;
 using ServiceStack.OrmLite;
@@ -21,10 +15,22 @@ using ServiceStack.Validation;
 using Test.ServiceInterface;
 using Test.ServiceModel;
 
+[assembly: HostingStartup(typeof(Test.AppHost))]
+
 namespace Test
 {
-    public partial class AppHost : AppHostBase
+    public partial class AppHost : AppHostBase, IHostingStartup
     {
+        public void Configure(IWebHostBuilder builder) => builder
+            .ConfigureServices(services => {
+                // Configure ASP.NET Core IOC Dependencies
+            })
+            .Configure(app => {
+                // Configure ASP.NET Core App
+                if (!HasInit)
+                    app.UseServiceStack(new AppHost());
+            });
+        
         /// <summary>
         /// Default constructor.
         /// Base constructor requires a name and assembly to locate web service classes. 
@@ -43,6 +49,7 @@ namespace Test
         public override void Configure(Container container)
         {
             // this.GlobalHtmlErrorHttpHandler = new RazorHandler("/error");
+            CSharpGenerator.UseNullableAnnotations = true;
 
             SetConfig(new HostConfig
             {
@@ -119,7 +126,7 @@ namespace Test
             });
 
             Plugins.Add(new OpenApiFeature());
-            Plugins.Add(new ValidationFeature());
+            // Plugins.Add(new ValidationFeature());
             Plugins.Add(new AutoQueryFeature
             {
                 MaxLimit = 1000,
@@ -143,7 +150,7 @@ namespace Test
         }
 
         private void CreateUser(OrmLiteAuthRepository authRepo,
-            int id, string username, string password, List<string> roles = null, List<string> permissions = null)
+            int id, string username, string password, List<string>? roles = null, List<string>? permissions = null)
         {
             new SaltedHash().GetHashAndSaltString(password, out var hash, out var salt);
 

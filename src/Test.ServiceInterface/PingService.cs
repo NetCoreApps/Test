@@ -62,7 +62,7 @@ namespace Test.ServiceInterface
                 try
                 {
                     var sw = Stopwatch.StartNew();
-                    var response = url.GetStringFromUrl(requestFilter: req => req.UserAgent = "TestServices");
+                    var response = url.GetStringFromUrl(requestFilter: req => req.With(c => c.UserAgent = "TestServices"));
                     ret.Responses[name] = new ResponseStatus
                     {
                         Message = "OK {0}ms".Fmt(sw.ElapsedMilliseconds)

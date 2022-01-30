@@ -62,6 +62,16 @@ namespace Test.ServiceModel
         public List<string> Names { get; set; }
     }
 
+    public class HelloMap : IReturn<Dictionary<string,ArrayResult>>
+    {
+        public List<string> Names { get; set; }
+    }
+
+    public class HelloQueryResponse : IReturn<QueryResponse<string>>
+    {
+        public List<string> Names { get; set; }
+    }
+
     public class HelloWithEnum
     {
         public EnumType EnumProp { get; set; }
