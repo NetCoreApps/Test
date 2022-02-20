@@ -8,7 +8,7 @@ namespace Test.ServiceInterface
 {
     public class MyServices : Service
     {
-        static readonly RandomNumberGenerator Randgen = new RNGCryptoServiceProvider();
+        static readonly RandomNumberGenerator Randgen = RandomNumberGenerator.Create();
         public static string CreateRandomBase64Id()
         {
             var data = new byte[15];
