@@ -16,33 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{1707F22E
 		..\..\_deploy\deploy.sh = ..\..\_deploy\deploy.sh
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Client.Web", "Test.Client.Web\Test.Client.Web.csproj", "{8CADC5EC-E05F-417F-9794-12F476F4D836}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Playground", "Test.Playground\Test.Playground.csproj", "{A71B2BCF-310A-4EF3-9D7B-721C95188982}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Text", "..\..\..\ServiceStack\ServiceStack.Text\src\ServiceStack.Text\ServiceStack.Text.csproj", "{D11791D5-F78F-4D03-89CE-821AF54FAF19}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Redis", "..\..\..\ServiceStack\ServiceStack.Redis\src\ServiceStack.Redis\ServiceStack.Redis.csproj", "{9432A8C9-A1EE-415F-9B13-1660443D88F7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Interfaces", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Interfaces\ServiceStack.Interfaces.csproj", "{D4B8FFFE-EB36-4044-B86C-DCF128F5C5B7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Client", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Client\ServiceStack.Client.csproj", "{330457C8-3280-47B3-AC12-4AE6AE33F89B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Common", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Common\ServiceStack.Common.csproj", "{93BD2023-EB5F-4FA0-B65C-9B6C63C44608}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack\ServiceStack.csproj", "{D5CB63FA-8742-41F6-B063-3E4EBEBFFD5D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Api.OpenApi", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Api.OpenApi\ServiceStack.Api.OpenApi.csproj", "{96DE35A0-E8E1-4FB8-A30E-21C035014BDA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Mvc", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Mvc\ServiceStack.Mvc.csproj", "{BDA3CBAD-8401-44A4-B1C5-D38561304BBA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Server", "..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Server\ServiceStack.Server.csproj", "{AB8D8D8A-AAA0-439B-A15E-EE2BEA7DCCF6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.OrmLite", "..\..\..\ServiceStack\ServiceStack.OrmLite\src\ServiceStack.OrmLite\ServiceStack.OrmLite.csproj", "{3C525434-AC73-43D7-B1B1-88F28EC7E2C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.OrmLite.Sqlite", "..\..\..\ServiceStack\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\ServiceStack.OrmLite.Sqlite.csproj", "{D411D6F9-009F-41EC-A214-95F8B93F2719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,50 +50,6 @@ Global
 		{A71B2BCF-310A-4EF3-9D7B-721C95188982}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71B2BCF-310A-4EF3-9D7B-721C95188982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A71B2BCF-310A-4EF3-9D7B-721C95188982}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D11791D5-F78F-4D03-89CE-821AF54FAF19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D11791D5-F78F-4D03-89CE-821AF54FAF19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D11791D5-F78F-4D03-89CE-821AF54FAF19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D11791D5-F78F-4D03-89CE-821AF54FAF19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9432A8C9-A1EE-415F-9B13-1660443D88F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9432A8C9-A1EE-415F-9B13-1660443D88F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9432A8C9-A1EE-415F-9B13-1660443D88F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9432A8C9-A1EE-415F-9B13-1660443D88F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4B8FFFE-EB36-4044-B86C-DCF128F5C5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4B8FFFE-EB36-4044-B86C-DCF128F5C5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4B8FFFE-EB36-4044-B86C-DCF128F5C5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4B8FFFE-EB36-4044-B86C-DCF128F5C5B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{330457C8-3280-47B3-AC12-4AE6AE33F89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{330457C8-3280-47B3-AC12-4AE6AE33F89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{330457C8-3280-47B3-AC12-4AE6AE33F89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{330457C8-3280-47B3-AC12-4AE6AE33F89B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93BD2023-EB5F-4FA0-B65C-9B6C63C44608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93BD2023-EB5F-4FA0-B65C-9B6C63C44608}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93BD2023-EB5F-4FA0-B65C-9B6C63C44608}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93BD2023-EB5F-4FA0-B65C-9B6C63C44608}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5CB63FA-8742-41F6-B063-3E4EBEBFFD5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5CB63FA-8742-41F6-B063-3E4EBEBFFD5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5CB63FA-8742-41F6-B063-3E4EBEBFFD5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5CB63FA-8742-41F6-B063-3E4EBEBFFD5D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96DE35A0-E8E1-4FB8-A30E-21C035014BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96DE35A0-E8E1-4FB8-A30E-21C035014BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96DE35A0-E8E1-4FB8-A30E-21C035014BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96DE35A0-E8E1-4FB8-A30E-21C035014BDA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BDA3CBAD-8401-44A4-B1C5-D38561304BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BDA3CBAD-8401-44A4-B1C5-D38561304BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BDA3CBAD-8401-44A4-B1C5-D38561304BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BDA3CBAD-8401-44A4-B1C5-D38561304BBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB8D8D8A-AAA0-439B-A15E-EE2BEA7DCCF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB8D8D8A-AAA0-439B-A15E-EE2BEA7DCCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB8D8D8A-AAA0-439B-A15E-EE2BEA7DCCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB8D8D8A-AAA0-439B-A15E-EE2BEA7DCCF6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C525434-AC73-43D7-B1B1-88F28EC7E2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C525434-AC73-43D7-B1B1-88F28EC7E2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C525434-AC73-43D7-B1B1-88F28EC7E2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C525434-AC73-43D7-B1B1-88F28EC7E2C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D411D6F9-009F-41EC-A214-95F8B93F2719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D411D6F9-009F-41EC-A214-95F8B93F2719}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D411D6F9-009F-41EC-A214-95F8B93F2719}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D411D6F9-009F-41EC-A214-95F8B93F2719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,16 +58,5 @@ Global
 		SolutionGuid = {DD5C554F-F58A-47A6-BBC0-5F98D4F44CDE}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D11791D5-F78F-4D03-89CE-821AF54FAF19} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{9432A8C9-A1EE-415F-9B13-1660443D88F7} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{D4B8FFFE-EB36-4044-B86C-DCF128F5C5B7} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{330457C8-3280-47B3-AC12-4AE6AE33F89B} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{93BD2023-EB5F-4FA0-B65C-9B6C63C44608} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{D5CB63FA-8742-41F6-B063-3E4EBEBFFD5D} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{96DE35A0-E8E1-4FB8-A30E-21C035014BDA} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{BDA3CBAD-8401-44A4-B1C5-D38561304BBA} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{AB8D8D8A-AAA0-439B-A15E-EE2BEA7DCCF6} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{3C525434-AC73-43D7-B1B1-88F28EC7E2C1} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
-		{D411D6F9-009F-41EC-A214-95F8B93F2719} = {1DEBF866-C782-4BD5-BD1F-FCEDEBADFFF6}
 	EndGlobalSection
 EndGlobal

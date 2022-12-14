@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Interfaces\ServiceStack.Interfaces.csproj">
-      <Project>{f524e237-ce22-477c-92c7-4ef719a7918d}</Project>
-      <Name>ServiceStack.Interfaces</Name>
-    </ProjectReference>
+    <PackageReference Include="ServiceStack.Interfaces" Version="6.*" />
   </ItemGroup>
 
   <ItemGroup>

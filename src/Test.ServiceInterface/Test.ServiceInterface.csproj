@@ -5,42 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack" Version="5.*" />
+    <PackageReference Include="ServiceStack" Version="6.*" />
+    <PackageReference Include="ServiceStack.OrmLite" Version="6.*" />
+    <PackageReference Include="ServiceStack.Text" Version="6.*" />
+    <PackageReference Include="ServiceStack.Redis" Version="6.*" />
+    <PackageReference Include="ServiceStack.Client" Version="6.*" />
+    <PackageReference Include="ServiceStack.Common" Version="6.*" />
+    <PackageReference Include="ServiceStack.Server" Version="6.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack.OrmLite\src\ServiceStack.OrmLite\ServiceStack.OrmLite.csproj">
-      <Project>{724d27d9-c5e9-4fce-8bb4-b2b6f04c9778}</Project>
-      <Name>ServiceStack.OrmLite.Source</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack.Redis\src\ServiceStack.Redis\ServiceStack.Redis.csproj">
-      <Project>{23fee0d9-6699-49a3-80ea-350c2d0801a3}</Project>
-      <Name>ServiceStack.Redis.Source</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack.Text\src\ServiceStack.Text\ServiceStack.Text.csproj">
-      <Project>{f5e3d07d-dd37-48a1-a8ae-6fab200df337}</Project>
-      <Name>ServiceStack.Text</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Client\ServiceStack.Client.csproj">
-      <Project>{301f45dd-2888-4349-8360-3737438f2771}</Project>
-      <Name>ServiceStack.Client.Source</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Common\ServiceStack.Common.csproj">
-      <Project>{76dd2bc3-16b7-4b7f-8ef0-d11531d6a2e9}</Project>
-      <Name>ServiceStack.Common.Source</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Interfaces\ServiceStack.Interfaces.csproj">
-      <Project>{f524e237-ce22-477c-92c7-4ef719a7918d}</Project>
-      <Name>ServiceStack.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack\src\ServiceStack.Server\ServiceStack.Server.csproj">
-      <Project>{7ad25838-92ec-48b9-9c41-fe313fd42dcb}</Project>
-      <Name>ServiceStack.Server.Source</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ServiceStack\ServiceStack\src\ServiceStack\ServiceStack.csproj">
-      <Project>{024807fe-07a1-49d0-85d7-b8123b23f49b}</Project>
-      <Name>ServiceStack.Source</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Test.ServiceModel\Test.ServiceModel.csproj">
       <Project>{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}</Project>
       <Name>Test.ServiceModel</Name>
