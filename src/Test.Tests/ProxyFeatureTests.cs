@@ -6,6 +6,7 @@ using ServiceStack;
 namespace Test.Tests
 {
     [TestFixture]
+    [Explicit]
     public class ProxyFeatureTests
     {
         //private static string ListeningOn = Config.ListeningOn;
