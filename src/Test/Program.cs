@@ -1,5 +1,8 @@
+using ServiceStack;
+
 var builder = WebApplication.CreateBuilder(args);
 
+Licensing.RegisterLicense(Environment.GetEnvironmentVariable("SERVICESTACK_LICENSE"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
