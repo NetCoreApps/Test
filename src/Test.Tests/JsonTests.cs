@@ -45,14 +45,14 @@ namespace Test.Tests
         [Test]
         public void Serialize_UTC_Date()
         {
-            var d = new DateTime(2001, 01, 01);
+            var d = new DateTime(2001, 01, 01,0,0,0,DateTimeKind.Utc);
 
             d.ToJson().Print();
             "\"\\/Date(978325200000-0000)\\/\"".Print();
             d.ToUnixTime().ToString().Print();
             d.ToUnixTimeMs().ToString().Print();
 
-            Assert.That(d.ToJson(), Is.EqualTo("\"\\/Date(978325200000-0000)\\/\""));
+            Assert.That(d.ToJson(), Is.EqualTo("\"\\/Date(978307200000)\\/\""));
         }
 
         [Test]
@@ -70,12 +70,12 @@ namespace Test.Tests
         [Test]
         public void Does_serialize_DateTime_in_QueryString()
         {
-            var dto = new HelloDateTime { DateTime = new DateTime(2001, 01, 01, 01, 01, 01) };
+            var dto = new HelloDateTime { DateTime = new DateTime(2001, 01, 01, 01, 01, 01, DateTimeKind.Utc) };
 
             var url = dto.ToGetUrl();
             url.Print();
 
-            Assert.That(url, Is.EqualTo("/json/reply/HelloDateTime?dateTime=" + Uri.EscapeDataString("2001-01-01T01:01:01-08:00")));
+            Assert.That(url, Is.EqualTo("/json/reply/HelloDateTime?dateTime=" + Uri.EscapeDataString("2001-01-01T01:01:01Z")));
         }
 
         [Test]
