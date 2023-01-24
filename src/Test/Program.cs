@@ -1,6 +1,4 @@
-using ServiceStack;
-
-Licensing.RegisterLicense("OSS BSD-3-Clause 2022 https://github.com/NetCoreApps/Test u95ySKVHFfNYZKUaUtvFTP8/+oaZLQBjcyQQA6enXR7yf5UxPRRfafgy4tiXdSck8Nwlxs5pRfTOxJN+ht64dkus9x37IVBrbzkX2WNsBRNzow9eCIZI+PYmdSj3vSNC5+/QagOnj6nhD30jx6mCx/b8qxRdv8x+rv5YRN7afnY=");
+ServiceStack.Licensing.RegisterLicense("OSS BSD-3-Clause 2023 https://github.com/NetCoreApps/Test sucmAEguKA1eVJFFH9tTZctUZLpDLctGXsgqzDQ4VRSm7PM5LCg7QkZa4YnbTnmUt+tXnS4zP5PlG9TXbO70B/Hyz6qr/D73HTqRXoy3iHpv1Nd4ylqFiujXTkde5wbG8PelmxfJvZ3XyCVACrfF8lhuBCDffZerEMKpJcFnync=");
 
 var builder = WebApplication.CreateBuilder(args);
 
