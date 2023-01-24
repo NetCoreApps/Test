@@ -49,7 +49,6 @@ namespace Test
         public override void Configure(Container container)
         {
             // this.GlobalHtmlErrorHttpHandler = new RazorHandler("/error");
-            CSharpGenerator.UseNullableAnnotations = true;
 
             SetConfig(new HostConfig
             {
@@ -59,9 +58,9 @@ namespace Test
                 Return204NoContentForEmptyResponse = true,
             });
 
-            container.Register<IRedisClientsManager>(c =>
-                new RedisManagerPool("localhost:6379"));
-            container.Register(c => c.Resolve<IRedisClientsManager>().GetCacheClient());
+            // container.Register<IRedisClientsManager>(c =>
+            //     new RedisManagerPool("localhost:6379"));
+            // container.Register(c => c.Resolve<IRedisClientsManager>().GetCacheClient());
 
             //container.Register<IDbConnectionFactory>(c => new OrmLiteConnectionFactory(
             //    AppSettings.GetString("AppDb"), PostgreSqlDialect.Provider));
