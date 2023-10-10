@@ -53,6 +53,7 @@ namespace Test
             SetConfig(new HostConfig
             {
                 AdminAuthSecret = "secretz",
+                UseHttpOnlyCookies = false,
                 DebugMode = HostingEnvironment.IsDevelopment(),
                 UseSameSiteCookies = false,
                 Return204NoContentForEmptyResponse = true,
