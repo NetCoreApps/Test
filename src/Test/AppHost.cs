@@ -54,7 +54,7 @@ namespace Test
             {
                 AdminAuthSecret = "secretz",
                 DebugMode = HostingEnvironment.IsDevelopment(),
-                //UseSameSiteCookies = true,
+                UseSameSiteCookies = false,
                 Return204NoContentForEmptyResponse = true,
             });
 
