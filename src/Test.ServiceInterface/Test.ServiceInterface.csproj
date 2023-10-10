@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack" Version="6.*" />
-    <PackageReference Include="ServiceStack.OrmLite" Version="6.*" />
-    <PackageReference Include="ServiceStack.Text" Version="6.*" />
-    <PackageReference Include="ServiceStack.Redis" Version="6.*" />
-    <PackageReference Include="ServiceStack.Client" Version="6.*" />
-    <PackageReference Include="ServiceStack.Common" Version="6.*" />
     <PackageReference Include="ServiceStack.Server" Version="6.*" />
   </ItemGroup>
 

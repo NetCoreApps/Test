@@ -10,15 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack.OrmLite.Sqlite" Version="6.*" />
-    <PackageReference Include="ServiceStack.OrmLite" Version="6.*" />
-    <PackageReference Include="ServiceStack.Redis" Version="6.*" />
-    <PackageReference Include="ServiceStack.Text" Version="6.*" />
-    <PackageReference Include="ServiceStack.Api.OpenApi" Version="6.*" />
-    <PackageReference Include="ServiceStack.Common" Version="6.*" />
-    <PackageReference Include="ServiceStack" Version="6.*" />
     <PackageReference Include="ServiceStack.Server" Version="6.*" />
-    <PackageReference Include="ServiceStack.Mvc" Version="6.*" />
+    <PackageReference Include="ServiceStack.OrmLite.Sqlite" Version="6.*" />
+    <PackageReference Include="ServiceStack.Api.OpenApi" Version="6.*" />
   </ItemGroup>
   
   <ItemGroup>

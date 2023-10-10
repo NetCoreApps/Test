@@ -105,6 +105,12 @@ namespace Test.ServiceModel.Types
         public int Id { get; set; }
     }
 
+    public class SubType
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+    
     public abstract class HelloResponseBase
     {
         public int RefId { get; set; }
@@ -120,9 +126,4 @@ namespace Test.ServiceModel.Types
         public string Result { get; set; }
     }
 
-    public class SubType
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
 }
