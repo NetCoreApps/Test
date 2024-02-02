@@ -5,15 +5,12 @@ using ServiceStack.Auth;
 using ServiceStack.Configuration;
 using ServiceStack.Data;
 using ServiceStack.Logging;
-using ServiceStack.NativeTypes.CSharp;
 using ServiceStack.NativeTypes.Java;
 using ServiceStack.NativeTypes.TypeScript;
 using ServiceStack.OrmLite;
-using ServiceStack.Redis;
 using ServiceStack.Text;
 using ServiceStack.Validation;
 using Test.ServiceInterface;
-using Test.ServiceModel;
 
 [assembly: HostingStartup(typeof(Test.AppHost))]
 
