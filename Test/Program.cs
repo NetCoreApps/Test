@@ -1,4 +1,7 @@
-ServiceStack.Licensing.RegisterLicense("OSS BSD-3-Clause 2024 https://github.com/NetCoreApps/Test fyIJciQwB1gqTrcpY03DJbazVUK5dcQK4/ZjC/3rk+tKIGcAtHdtxSTrmrBr4iY2b0vGEGHen2mKR+BGsho7kDEU0QDNVPWZOY/BPnT3zgRkMUK4BsNhAOMCSos1VaP6oQZYaMGimJ4dogRNorh2Aui5muFVuhL7kJEnKHOXFf8=");
+using Test;
+using ServiceStack;
+
+AppHost.RegisterLicense();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,5 +15,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
     app.UseHttpsRedirection();
 }
+
+app.UseServiceStack(new AppHost());
 
 app.Run();
