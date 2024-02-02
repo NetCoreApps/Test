@@ -1,4 +1,3 @@
-using Test;
 using ServiceStack;
 
 AppHost.RegisterLicense();

@@ -4,10 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <TypeScriptToolsVersion>latest</TypeScriptToolsVersion>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <PublishProfile>DefaultContainer</PublishProfile>
     <DefineConstants>$(DefineConstants);NETCORE;NET8_0;NET6_0_OR_GREATER;NET8_0_OR_GREATER</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="Test" />
+    <Using Include="Test.ServiceModel" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ServiceStack.Server" Version="8.*" />
