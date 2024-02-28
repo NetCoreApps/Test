@@ -1,6 +1,5 @@
 ﻿using Funq;
 using ServiceStack;
-using ServiceStack.Api.OpenApi;
 using ServiceStack.Auth;
 using ServiceStack.Configuration;
 using ServiceStack.Data;
@@ -16,7 +15,7 @@ using Test.ServiceInterface;
 
 namespace Test;
 
-public partial class AppHost : AppHostBase, IHostingStartup
+public class AppHost : AppHostBase, IHostingStartup
 {
     public void Configure(IWebHostBuilder builder) => builder
         .ConfigureServices(services => {
@@ -100,9 +99,8 @@ public partial class AppHost : AppHostBase, IHostingStartup
         });
 
         Plugins.Add(new AuthFeature(() => new CustomUserSession(),
-            new IAuthProvider[]
-            {
-                new JwtAuthProvider(AppSettings)
+        [
+            new JwtAuthProvider(AppSettings)
                 {
                     AllowInQueryString = true,
                 },
@@ -110,15 +108,13 @@ public partial class AppHost : AppHostBase, IHostingStartup
                 new CredentialsAuthProvider(AppSettings),
                 new TwitterAuthProvider(AppSettings),   //Sign-in with Twitter
                 new FacebookAuthProvider(AppSettings),  //Sign-in with Facebook
-                new GithubAuthProvider(AppSettings),    //Sign-in with GitHub
-            }) {
+                new GithubAuthProvider(AppSettings) //Sign-in with GitHub
+        ]) {
             // AllowGetAuthenticateRequests = req => true,
             IncludeRegistrationService = true,
             IncludeAssignRoleServices = true,
         });
 
-        Plugins.Add(new OpenApiFeature());
-        // Plugins.Add(new ValidationFeature());
         Plugins.Add(new AutoQueryFeature
         {
             MaxLimit = 1000,
