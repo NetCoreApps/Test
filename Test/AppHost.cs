@@ -3,6 +3,7 @@ using ServiceStack;
 using ServiceStack.Auth;
 using ServiceStack.Configuration;
 using ServiceStack.Data;
+using ServiceStack.Host.Handlers;
 using ServiceStack.Logging;
 using ServiceStack.NativeTypes.Java;
 using ServiceStack.NativeTypes.TypeScript;
@@ -40,6 +41,10 @@ public class AppHost : AppHostBase, IHostingStartup
     public override void Configure(Container container)
     {
         // this.GlobalHtmlErrorHttpHandler = new RazorHandler("/error");
+
+        // RawHttpHandlers.Add(req => req.PathInfo.StartsWith("/login")
+        //     ? new RedirectHttpHandler { RelativeUrl = "/metadata" }
+        //     : null);
 
         SetConfig(new HostConfig
         {
