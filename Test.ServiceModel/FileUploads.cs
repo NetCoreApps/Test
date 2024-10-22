@@ -53,7 +53,6 @@ public class GenerationResponse
     public ResponseStatus? ResponseStatus { get; set; }
 }
 
-[ValidateApiKey]
 [Tag("AI")]
 [Api("Convert speech to text")]
 [Description("Transcribe audio content to text")]
