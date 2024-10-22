@@ -9,6 +9,7 @@ public class FileUploadServices : Service
 {
     public object Any(SpeechToText request)
     {
+        
         if (Request?.Files == null || Request.Files.Length == 0)
         {
             throw new ArgumentNullException(nameof(request.Audio));
@@ -16,10 +17,11 @@ public class FileUploadServices : Service
 
         var to = new GenerationResponse();
 
-        var bytes = request.Audio.ReadFully();
+        var file = Request.Files[0];
+        var bytes = file.InputStream.ReadFully();
         to.TextOutputs =
         [
-            new() { Text = $"{nameof(request.Audio)} {bytes.Length}" },
+            new() { Text = $"{file.Name}, {nameof(request.Audio)} {bytes.Length}, {file.FileName}, {file.ContentType}" },
             new() { Text = $"{nameof(request.Tag)} {request.Tag}" },
             new() { Text = $"{nameof(request.RefId)} {request.RefId}" },
         ];
