@@ -50,7 +50,8 @@ public class AppHost : AppHostBase, IHostingStartup
         {
             AdminAuthSecret = "secretz",
             UseHttpOnlyCookies = false,
-            DebugMode = HostingEnvironment.IsDevelopment(),
+            //DebugMode = HostingEnvironment.IsDevelopment(),
+            DebugMode = true,
             UseSameSiteCookies = false,
             Return204NoContentForEmptyResponse = true,
         });
