@@ -30,14 +30,13 @@ public class FileUploadServices : Service
     public object Any(TestFileUploads request)
     {
         if (Request?.Files == null || Request.Files.Length == 0)
-        {
             throw new ArgumentNullException(nameof(Request.Files));
-        }
 
         var to = new TestFileUploadsResponse
         {
             Id = request.Id,
             RefId = request.RefId,
+            Files = [],
         };
 
         foreach (var file in Request.Files)
