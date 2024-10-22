@@ -4,6 +4,7 @@ using ServiceStack.Auth;
 using ServiceStack.Configuration;
 using ServiceStack.Data;
 using ServiceStack.Host.Handlers;
+using ServiceStack.IO;
 using ServiceStack.Logging;
 using ServiceStack.NativeTypes.Java;
 using ServiceStack.NativeTypes.TypeScript;
@@ -141,6 +142,22 @@ public class AppHost : AppHostBase, IHostingStartup
         });
             
         TypeScriptGenerator.ReturnTypeAliases[typeof(byte[]).Name] = "Uint8Array";
+
+        var fileFs = new FileSystemVirtualFiles(HostingEnvironment.ContentRootPath.CombineWith("App_Data/files").AssertDir());
+        Plugins.Add(new FilesUploadFeature(
+            new UploadLocation("pub", 
+                fileFs,
+                readAccessRole: RoleNames.AllowAnon,
+                // requireApiKey: new(),
+                maxFileBytes: 10 * 1024 * 1024,
+                resolvePath:ctx => "pub".CombineWith(ctx.FileName)),
+            new UploadLocation("secure", 
+                fileFs,
+                // requireApiKey: new(),
+                maxFileBytes: 10 * 1024 * 1024,
+                resolvePath:ctx => "secure".CombineWith(ctx.FileName))
+        ));
+        
     }
 
     private void CreateUser(OrmLiteAuthRepository authRepo,
