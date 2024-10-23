@@ -1,14 +1,13 @@
 ﻿using ServiceStack;
 
-namespace Test.ServiceModel
+namespace Test.ServiceModel;
+
+[Route("/requires-role")]
+public class RequiresRole {}
+
+public class RequiresRoleResponse
 {
-    [Route("/requires-role")]
-    public class RequiresRole {}
+    public string Result { get; set; }
 
-    public class RequiresRoleResponse
-    {
-        public string Result { get; set; }
-
-        public ResponseStatus ResponseStatus { get; set; }
-    }
+    public ResponseStatus ResponseStatus { get; set; }
 }
