@@ -1,14 +1,13 @@
 ﻿using ServiceStack;
 using Test.ServiceModel;
 
-namespace Test.ServiceInterface
+namespace Test.ServiceInterface;
+
+[RequiredRole("TheRole")]
+public class RequiresRoleService : Service
 {
-    [RequiredRole("TheRole")]
-    public class RequiresRoleService : Service
+    public object Any(RequiresRole request)
     {
-        public object Any(RequiresRole request)
-        {
-            return new RequiresRoleResponse { Result = "Haz Access!" };
-        }
+        return new RequiresRoleResponse { Result = "Haz Access!" };
     }
 }

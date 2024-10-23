@@ -1,6 +1,5 @@
 using System;
 using ServiceStack;
-using ServiceStack.Host;
 using Test.ServiceModel;
 
 namespace Test.ServiceInterface;

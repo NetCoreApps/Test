@@ -2,55 +2,54 @@
 using ServiceStack;
 using Test.ServiceModel;
 
-namespace Test.ServiceInterface
+namespace Test.ServiceInterface;
+
+public class MetadataTestService : Service
 {
-    public class MetadataTestService : Service
+    public object Any(MetadataTest request)
     {
-        public object Any(MetadataTest request)
+        return new MetadataTestResponse
         {
-            return new MetadataTestResponse
+            Id = request.Id,
+            Results = new List<MetadataTestChild>
             {
-                Id = request.Id,
-                Results = new List<MetadataTestChild>
+                new MetadataTestChild
                 {
-                    new MetadataTestChild
+                    Name = "foo",
+                    Results = new List<MetadataTestNestedChild>
                     {
-                        Name = "foo",
-                        Results = new List<MetadataTestNestedChild>
+                        new MetadataTestNestedChild
                         {
-                            new MetadataTestNestedChild
-                            {
-                                Name = "bar",
-                            },
-                        }
+                            Name = "bar",
+                        },
                     }
                 }
-            };
-        }
-
-        public object Any(MetadataTestArray request)
-        {
-            return new[]
-            {
-                new MetadataTestNestedChild
-                {
-                    Name = "bar",
-                },
-            };
-        }
-
-        public object Any(GetExample request)
-        {
-            return new GetExampleResponse
-            {
-                MenuExample1 = new MenuExample
-                {
-                    MenuItemExample1 = new MenuItemExample { Name1 = "foo" }
-                }
-            };
-        }
-
-        public object Get(RequestMessage request) => new Message();
-        public object Put(Message request) => request;
+            }
+        };
     }
+
+    public object Any(MetadataTestArray request)
+    {
+        return new[]
+        {
+            new MetadataTestNestedChild
+            {
+                Name = "bar",
+            },
+        };
+    }
+
+    public object Any(GetExample request)
+    {
+        return new GetExampleResponse
+        {
+            MenuExample1 = new MenuExample
+            {
+                MenuItemExample1 = new MenuItemExample { Name1 = "foo" }
+            }
+        };
+    }
+
+    public object Get(RequestMessage request) => new Message();
+    public object Put(Message request) => request;
 }

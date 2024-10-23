@@ -1,13 +1,12 @@
 ﻿using ServiceStack;
 using Test.ServiceModel;
 
-namespace Test.ServiceInterface
+namespace Test.ServiceInterface;
+
+public class CustomHttpErrorService : Service
 {
-    public class CustomHttpErrorService : Service
+    public object Any(CustomHttpError request)
     {
-        public object Any(CustomHttpError request)
-        {
-            throw new HttpError(request.StatusCode, request.StatusDescription);
-        }
+        throw new HttpError(request.StatusCode, request.StatusDescription);
     }
 }
