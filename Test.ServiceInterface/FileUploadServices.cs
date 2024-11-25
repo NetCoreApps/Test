@@ -14,11 +14,11 @@ public class FileUploadServices : Service
             throw new ArgumentNullException(nameof(request.Audio));
         }
 
-        var to = new GenerationResponse();
+        var to = new TextGenerationResponse();
 
         var file = Request.Files[0];
         var bytes = file.InputStream.ReadFully();
-        to.TextOutputs =
+        to.Results =
         [
             new() { Text = $"{file.Name}, {nameof(request.Audio)} {bytes.Length}, {file.FileName}, {file.ContentType}" },
             new() { Text = $"{nameof(request.Tag)} {request.Tag}" },

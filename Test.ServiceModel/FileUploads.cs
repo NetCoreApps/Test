@@ -53,24 +53,30 @@ public class GenerationResponse
     public ResponseStatus? ResponseStatus { get; set; }
 }
 
+[Api("Response object for text generation requests")]
+public class TextGenerationResponse
+{
+    [ApiMember(Description = "List of generated text outputs")]
+    public List<TextOutput>? Results { get; set; }
+
+    [ApiMember(Description = "Detailed response status information")]
+    public ResponseStatus? ResponseStatus { get; set; }
+}
+
 [Tag("AI")]
 [Api("Convert speech to text")]
-[Description("Transcribe audio content to text")]
 [SystemJson(UseSystemJson.Response)]
-public class SpeechToText : IGeneration, IReturn<GenerationResponse>
+public class SpeechToText : IGeneration, IReturn<TextGenerationResponse>
 {
     [ApiMember(Description = "The audio stream containing the speech to be transcribed")]
-    [Description("The audio stream containing the speech to be transcribed")]
     [Required]
     [Input(Type = "file")]
-    public Stream Audio { get; set; }
+    public string? Audio { get; set; }
     
     [ApiMember(Description = "Optional client-provided identifier for the request")]
-    [Description("Optional client-provided identifier for the request")]
     public string? RefId { get; set; }
 
     [ApiMember(Description = "Tag to identify the request")]
-    [Description("Tag to identify the request")]
     public string? Tag { get; set; }
 }
 
