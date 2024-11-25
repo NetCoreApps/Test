@@ -36,10 +36,10 @@ public abstract class AllTypesBase
     public KeyValuePair<string, string> KeyValuePair { get; set; }
     public DateTime? NullableDateTime { get; set; }
     public TimeSpan? NullableTimeSpan { get; set; }
-    public List<string> StringList { get; set; }
-    public string[] StringArray { get; set; }
-    public Dictionary<string, string> StringMap { get; set; }
-    public Dictionary<int, string> IntStringMap { get; set; }
+    public List<string> StringList { get; set; } = [];
+    public string[] StringArray { get; set; } = [];
+    public Dictionary<string, string> StringMap { get; set; } = new();
+    public Dictionary<int, string> IntStringMap { get; set; } = new();
     public SubType SubType { get; set; }
 }
     
@@ -66,33 +66,33 @@ public class AllTypes : IReturn<AllTypes>
     public KeyValuePair<string, string> KeyValuePair { get; set; }
     public DateTime? NullableDateTime { get; set; }
     public TimeSpan? NullableTimeSpan { get; set; }
-    public List<string> StringList { get; set; }
-    public string[] StringArray { get; set; }
-    public Dictionary<string, string> StringMap { get; set; }
-    public Dictionary<int, string> IntStringMap { get; set; }
+    public List<string> StringList { get; set; } = [];
+    public string[] StringArray { get; set; } = [];
+    public Dictionary<string, string> StringMap { get; set; } = new();
+    public Dictionary<int, string> IntStringMap { get; set; } = new();
     public SubType SubType { get; set; }
 }
 
 public class AllCollectionTypes : IReturn<AllCollectionTypes>
 {
-    public int[] IntArray { get; set; }
-    public List<int> IntList { get; set; }
+    public int[] IntArray { get; set; } = [];
+    public List<int> IntList { get; set; } = [];
 
-    public string[] StringArray { get; set; }
-    public List<string> StringList { get; set; }
+    public string[] StringArray { get; set; } = [];
+    public List<string> StringList { get; set; } = [];
 
-    public float[] FloatArray { get; set; }
-    public List<double> DoubleList { get; set; }
+    public float[] FloatArray { get; set; } = [];
+    public List<double> DoubleList { get; set; } = [];
 
-    public byte[] ByteArray { get; set; }
-    public char[] CharArray { get; set; }
-    public List<decimal> DecimalList { get; set; }
+    public byte[] ByteArray { get; set; } = [];
+    public char[] CharArray { get; set; } = [];
+    public List<decimal> DecimalList { get; set; } = [];
 
-    public Poco[] PocoArray { get; set; }
-    public List<Poco> PocoList { get; set; }
+    public Poco[] PocoArray { get; set; } = [];
+    public List<Poco> PocoList { get; set; } = [];
 
-    public Dictionary<string, List<Poco>> PocoLookup { get; set; }
-    public Dictionary<string, List<Dictionary<string, Poco>>> PocoLookupMap { get; set; }
+    public Dictionary<string, List<Poco>> PocoLookup { get; set; } = new();
+    public Dictionary<string, List<Dictionary<string, Poco>>> PocoLookupMap { get; set; } = new();
 }
 
 public class Poco

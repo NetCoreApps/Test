@@ -11,5 +11,5 @@ public class GetRandomIds
 
 public class GetRandomIdsResponse
 {
-    public List<string> Results { get; set; }
+    public List<string> Results { get; set; } = [];
 }
