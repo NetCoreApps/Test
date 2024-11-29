@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ContainerLabel Include="service" Value="test" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Test" />
     <Using Include="Test.ServiceModel" />
   </ItemGroup>
