@@ -8,7 +8,7 @@ public class FileUploadServices : Service
 {
     public object Any(SpeechToText request)
     {
-        
+
         if (Request?.Files == null || Request.Files.Length == 0)
         {
             throw new ArgumentNullException(nameof(request.Audio));
@@ -24,7 +24,7 @@ public class FileUploadServices : Service
             new() { Text = $"{nameof(request.Tag)} {request.Tag}" },
             new() { Text = $"{nameof(request.RefId)} {request.RefId}" },
         ];
-        
+
         return to;
     }
 
@@ -50,7 +50,12 @@ public class FileUploadServices : Service
                 ContentType = file.ContentType,
             });
         }
-        
+
         return to;
+    }
+
+    public object Any(TestUploadWithDto request)
+    {
+        return request;
     }
 }
