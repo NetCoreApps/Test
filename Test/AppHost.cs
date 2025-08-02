@@ -183,5 +183,5 @@ public class AppHost : AppHostBase, IHostingStartup
     }
     
     public static void RegisterLicense() =>
-        Licensing.RegisterLicense("OSS BSD-3-Clause 2024 https://github.com/NetCoreApps/Test fyIJciQwB1gqTrcpY03DJbazVUK5dcQK4/ZjC/3rk+tKIGcAtHdtxSTrmrBr4iY2b0vGEGHen2mKR+BGsho7kDEU0QDNVPWZOY/BPnT3zgRkMUK4BsNhAOMCSos1VaP6oQZYaMGimJ4dogRNorh2Aui5muFVuhL7kJEnKHOXFf8=");
+        Licensing.RegisterLicense("OSS BSD-3-Clause 2025 https://github.com/NetCoreApps/Test M27TtHoHgW26oIo0X3fRskubhn19AVBx0EKCn1iQ3AvJ584csfVrjjMqFlNO8FD0HC1n3LGjON6ycHf904NPCGC1XBPNEKlSFTgTMF4DbwlLDlOmTTR+HxCvLfUNQOxtuO4YXVYeS2JYgojojg3br9fJmycpc12hjq3ayyhX3Yg=");
 }
